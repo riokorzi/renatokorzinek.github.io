@@ -4,70 +4,441 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Renato Korzinek | Engineering Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-color: #0f172a;
-      --secondary-color: #2563eb;
-      --text-color: #1e293b;
-      --background-color: #f5f5f5;
-      --accent-background: #ffffff;
-      --border-radius: 12px;
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #111111;
+      --bg-tertiary: #1a1a1a;
+      --text-primary: #ffffff;
+      --text-secondary: #a3a3a3;
+      --text-muted: #737373;
+      --accent-primary: #ffffff;
+      --accent-secondary: #9ca3af;
+      --accent-gradient: linear-gradient(135deg, #ffffff, #9ca3af);
+      --border-color: #262626;
+      --hover-bg: #1f1f1f;
+      --shadow-dark: 0 4px 20px rgba(0, 0, 0, 0.5);
+      --shadow-glow: 0 0 30px rgba(255, 255, 255, 0.08);
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ::selection {
+      background: var(--accent-primary);
+      color: white;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
-      color: var(--text-color);
-      background-color: var(--background-color);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Animated background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(156, 163, 175, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+      z-index: -1;
+      animation: backgroundShift 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes backgroundShift {
+      0% { transform: scale(1) rotate(0deg); }
+      100% { transform: scale(1.1) rotate(2deg); }
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-gradient);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      padding: 2rem;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: var(--accent-gradient);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(255, 255, 255, 0.15);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Sections */
+    section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* About Section */
+    .about-content {
+      background: var(--bg-secondary);
+      border-radius: 20px;
+      padding: 3rem;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-dark);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .about-text {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .project-card {
+      background: var(--bg-secondary);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent-gradient);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-glow);
+      border-color: #ffffff;
+    }
+
+    .project-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .project-image {
+      width: 100%;
+      height: 200px;
+      background: var(--bg-tertiary);
+      border-radius: 15px;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .project-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .project-description {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
       line-height: 1.6;
     }
-    header { background-color: var(--primary-color); padding: 1.5rem 2rem; color: white; }
-    nav {
-      max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+
+    /* Resume Section */
+    .resume-section {
+      background: var(--bg-secondary);
+      border-radius: 20px;
+      padding: 3rem;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-dark);
+      max-width: 600px;
+      margin: 0 auto;
     }
-    nav h1 { font-size: 2rem; font-weight: 600; }
-    nav ul { list-style: none; display: flex; gap: 1.5rem; }
-    nav ul li a {
-      color: white; text-decoration: none; font-weight: 500; transition: opacity 0.3s ease;
+
+    .resume-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    nav ul li a:hover { opacity: 0.7; }
-    .hero {
-      background: linear-gradient(135deg, #93c5fd, #e0f2fe); padding: 4rem 2rem; text-align: center;
+
+    .resume-description {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
     }
-    .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-    .hero p { font-size: 1.2rem; color: #334155; }
-    section { max-width: 900px; margin: 3rem auto; padding: 0 2rem; }
-    h3 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--primary-color); }
-    .project {
-      background-color: var(--accent-background); border-radius: var(--border-radius); padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); margin-bottom: 2rem; transition: transform 0.3s ease;
+
+    .download-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: var(--accent-gradient);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-glow);
     }
-    .project:hover { transform: translateY(-5px); }
-    .project img {
-      max-width: 100%; border-radius: var(--border-radius); margin-bottom: 1rem;
+
+    .download-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(255, 255, 255, 0.15);
     }
-    .project h4 { color: var(--secondary-color); font-size: 1.3rem; margin-bottom: 0.5rem; }
-    .resume-download {
-      background-color: var(--accent-background); padding: 2rem; border-radius: var(--border-radius);
-      text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
     }
-    .resume-download a {
-      display: inline-block; background-color: var(--secondary-color); color: white; padding: 0.75rem 1.5rem;
-      border-radius: var(--border-radius); text-decoration: none; font-weight: 500; transition: background-color 0.3s ease;
+
+    .contact-item {
+      background: var(--bg-secondary);
+      padding: 2rem;
+      border-radius: 20px;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
     }
-    .resume-download a:hover { background-color: #1d4ed8; }
-    a { color: var(--secondary-color); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+
+    .contact-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-glow);
+      border-color: #ffffff;
+    }
+
+    .contact-label {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .contact-link {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-link:hover {
+      color: #9ca3af;
+    }
+
+    /* Footer */
     footer {
-      text-align: center; padding: 2rem; background-color: var(--primary-color); color: white;
-      font-size: 0.9rem; margin-top: 3rem;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      margin-top: 4rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 1rem;
+      }
+      
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      section {
+        padding: 2rem 1rem;
+      }
+      
+      .hero-content {
+        padding: 1rem;
+      }
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #ffffff;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #9ca3af;
     }
   </style>
 </head>
 <body>
   <header>
     <nav>
-      <h1>Renato Korzinek</h1>
-      <ul>
+      <div class="logo">Renato Korzinek</div>
+      <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#resume">Resume</a></li>
@@ -77,51 +448,97 @@
   </header>
 
   <section class="hero">
-    <h2>Mechanical & Aerospace Engineer</h2>
-    <p>Portfolio showcasing selected academic and personal engineering work.</p>
+    <div class="hero-content">
+      <h1 class="hero-title">Mechanical & Aerospace Engineer</h1>
+      <p class="hero-subtitle">Innovating through Engineering Excellence</p>
+      <p class="hero-description">
+        Passionate about solving complex problems through hands-on experimentation, 
+        data-driven design, and cutting-edge aerospace systems development.
+      </p>
+      <a href="#projects" class="cta-button">Explore My Work</a>
+    </div>
   </section>
 
   <section id="about">
-    <h3>About Me</h3>
-    <p>I'm a recent graduate in Mechanical Engineering with a focus on aerospace systems, prototyping, and data-driven design. Passionate about solving complex problems through hands-on experimentation and cross-functional teamwork.</p>
+    <h2 class="section-title">About Me</h2>
+    <div class="about-content">
+      <p class="about-text">
+        I'm a recent graduate in Mechanical Engineering with a focus on aerospace systems, 
+        prototyping, and data-driven design. My expertise spans from fuel cell technology 
+        to structural dynamics simulation, always driven by a passion for innovation and 
+        cross-functional teamwork in solving tomorrow's engineering challenges.
+      </p>
+    </div>
   </section>
 
   <section id="projects">
-    <h3>Selected Projects</h3>
-    <div class="project">
-      <img src="images/pem-fuel-cell.jpg" alt="PEM Fuel Cell Design">
-      <h4>PEM Fuel Cell Design</h4>
-      <p>Led the design and manufacturing of a custom hydrogen fuel cell. Focused on optimizing flow channels, testing hydrogen sensors, and benchmarking against a commercial PEM unit.</p>
-    </div>
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-image">PEM Fuel Cell Design Image</div>
+        <h3 class="project-title">PEM Fuel Cell Design</h3>
+        <p class="project-description">
+          Led the design and manufacturing of a custom hydrogen fuel cell. Focused on 
+          optimizing flow channels, testing hydrogen sensors, and benchmarking against 
+          a commercial PEM unit to achieve maximum efficiency.
+        </p>
+      </div>
 
-    <div class="project">
-      <img src="images/second-order-system.jpg" alt="Second-Order Dynamic System Analysis">
-      <h4>Second-Order Dynamic System Analysis</h4>
-      <p>Used a linear potentiometer and signal processing to model and analyze a second-order dynamic system. Matched experimental and theoretical results within acceptable tolerance.</p>
-    </div>
+      <div class="project-card">
+        <div class="project-image">Dynamic System Analysis Image</div>
+        <h3 class="project-title">Second-Order Dynamic System Analysis</h3>
+        <p class="project-description">
+          Utilized linear potentiometer and advanced signal processing to model and 
+          analyze a second-order dynamic system. Successfully matched experimental 
+          and theoretical results within acceptable tolerance parameters.
+        </p>
+      </div>
 
-    <div class="project">
-      <img src="images/starlink-dynamics.jpg" alt="Starlink Structural Dynamics Simulation">
-      <h4>Starlink Structural Dynamics Simulation</h4>
-      <p>Simulated vibrational loads and modal behavior of satellite components for LEO deployment. Applied FEA and MATLAB for structural resonance evaluation.</p>
+      <div class="project-card">
+        <div class="project-image">Starlink Simulation Image</div>
+        <h3 class="project-title">Starlink Structural Dynamics Simulation</h3>
+        <p class="project-description">
+          Simulated vibrational loads and modal behavior of satellite components for 
+          LEO deployment. Applied FEA and MATLAB for comprehensive structural 
+          resonance evaluation and optimization.
+        </p>
+      </div>
     </div>
   </section>
 
-  <section id="resume" class="resume-download">
-    <h3>Resume</h3>
-    <p>You can download my latest resume here:</p>
-    <a href="assets/Renato_Korzinek_Resume.pdf" download>Download Resume (PDF)</a>
+  <section id="resume">
+    <div class="resume-section">
+      <h2 class="resume-title">Resume</h2>
+      <p class="resume-description">
+        Download my comprehensive resume to learn more about my experience, 
+        skills, and academic achievements.
+      </p>
+      <a href="assets/Renato_Korzinek_Resume.pdf" download class="download-button">
+        Download Resume (PDF)
+      </a>
+    </div>
   </section>
 
   <section id="contact">
-    <h3>Contact</h3>
-    <p>Email: <a href="mailto:renato@example.com">renato@example.com</a></p>
-    <p>GitHub: <a href="https://github.com/renatokorzinek">github.com/renatokorzinek</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/renatokorzinek">linkedin.com/in/renatokorzinek</a></p>
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="contact-label">Email</div>
+        <a href="mailto:renato@example.com" class="contact-link">renato@example.com</a>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">GitHub</div>
+        <a href="https://github.com/renatokorzinek" class="contact-link">github.com/renatokorzinek</a>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">LinkedIn</div>
+        <a href="https://linkedin.com/in/renatokorzinek" class="contact-link">linkedin.com/in/renatokorzinek</a>
+      </div>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Renato Korzinek</p>
+    <p>&copy; 2025 Renato Korzinek. All rights reserved.</p>
   </footer>
 </body>
 </html>
