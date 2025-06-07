@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Renato Korzinek | Engineering Portfolio</title>
+  <style>
+    :root {
+      --primary-color: #0f172a;
+      --secondary-color: #2563eb;
+      --text-color: #1e293b;
+      --background-color: #f8fafc;
+      --accent-background: #ffffff;
+      --border-radius: 12px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-color);
+      background-color: var(--background-color);
+      line-height: 1.6;
+    }
+    header { background-color: var(--primary-color); padding: 1.5rem 2rem; color: white; }
+    nav {
+      max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+    }
+    nav h1 { font-size: 2rem; font-weight: 600; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    nav ul li a {
+      color: white; text-decoration: none; font-weight: 500; transition: opacity 0.3s ease;
+    }
+    nav ul li a:hover { opacity: 0.7; }
+    .hero {
+      background: linear-gradient(135deg, #93c5fd, #e0f2fe); padding: 4rem 2rem; text-align: center;
+    }
+    .hero h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; color: #334155; }
+    section { max-width: 900px; margin: 3rem auto; padding: 0 2rem; }
+    h3 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--primary-color); }
+    .project {
+      background-color: var(--accent-background); border-radius: var(--border-radius); padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); margin-bottom: 2rem; transition: transform 0.3s ease;
+    }
+    .project:hover { transform: translateY(-5px); }
+    .project img {
+      max-width: 100%; border-radius: var(--border-radius); margin-bottom: 1rem;
+    }
+    .project h4 { color: var(--secondary-color); font-size: 1.3rem; margin-bottom: 0.5rem; }
+    .resume-download {
+      background-color: var(--accent-background); padding: 2rem; border-radius: var(--border-radius);
+      text-align: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .resume-download a {
+      display: inline-block; background-color: var(--secondary-color); color: white; padding: 0.75rem 1.5rem;
+      border-radius: var(--border-radius); text-decoration: none; font-weight: 500; transition: background-color 0.3s ease;
+    }
+    .resume-download a:hover { background-color: #1d4ed8; }
+    a { color: var(--secondary-color); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer {
+      text-align: center; padding: 2rem; background-color: var(--primary-color); color: white;
+      font-size: 0.9rem; margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Renato Korzinek</h1>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Mechanical & Aerospace Engineer</h2>
+    <p>Portfolio showcasing selected academic and personal engineering work.</p>
+  </section>
+
+  <section id="about">
+    <h3>About Me</h3>
+    <p>I'm a recent graduate in Mechanical Engineering with a focus on aerospace systems, prototyping, and data-driven design. Passionate about solving complex problems through hands-on experimentation and cross-functional teamwork.</p>
+  </section>
+
+  <section id="projects">
+    <h3>Selected Projects</h3>
+    <div class="project">
+      <img src="images/pem-fuel-cell.jpg" alt="PEM Fuel Cell Design">
+      <h4>PEM Fuel Cell Design</h4>
+      <p>Led the design and manufacturing of a custom hydrogen fuel cell. Focused on optimizing flow channels, testing hydrogen sensors, and benchmarking against a commercial PEM unit.</p>
+    </div>
+
+    <div class="project">
+      <img src="images/second-order-system.jpg" alt="Second-Order Dynamic System Analysis">
+      <h4>Second-Order Dynamic System Analysis</h4>
+      <p>Used a linear potentiometer and signal processing to model and analyze a second-order dynamic system. Matched experimental and theoretical results within acceptable tolerance.</p>
+    </div>
+
+    <div class="project">
+      <img src="images/starlink-dynamics.jpg" alt="Starlink Structural Dynamics Simulation">
+      <h4>Starlink Structural Dynamics Simulation</h4>
+      <p>Simulated vibrational loads and modal behavior of satellite components for LEO deployment. Applied FEA and MATLAB for structural resonance evaluation.</p>
+    </div>
+  </section>
+
+  <section id="resume" class="resume-download">
+    <h3>Resume</h3>
+    <p>You can download my latest resume here:</p>
+    <a href="assets/Renato_Korzinek_Resume.pdf" download>Download Resume (PDF)</a>
+  </section>
+
+  <section id="contact">
+    <h3>Contact</h3>
+    <p>Email: <a href="mailto:renato@example.com">renato@example.com</a></p>
+    <p>GitHub: <a href="https://github.com/renatokorzinek">github.com/renatokorzinek</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/renatokorzinek">linkedin.com/in/renatokorzinek</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Renato Korzinek</p>
+  </footer>
+</body>
+</html>
