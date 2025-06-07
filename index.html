@@ -714,6 +714,128 @@
           <button class="expand-button" onclick="toggleProject(this)" style="background: var(--bg-tertiary); color: var(--text-primary);">Show Less</button>
         </div>
       </div>
+
+      <div class="project-card">
+        <img src="images/drone1.jpeg" alt="Drone 1" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; border: 1px solid var(--border-color);">
+        <h3 class="project-title">ME360 Electromechanical Design</h3>
+        
+        <div class="project-summary">
+          <p class="project-description">
+            Renato Korzinek, BU Mechanical Engineering Class of 2025 
+          </p>
+          <button class="expand-button" onclick="toggleProject(this)">View Details</button>
+        </div>
+
+        <div class="project-details">
+          <div class="tech-stack">
+            <span class="tech-tag">CNC Manufacturing</span>
+            <span class="tech-tag">Project Design</span>
+            <span class="tech-tag">Soldering</span>
+            <span class="tech-tag">Arduino Programming</span>
+            <span class="tech-tag">Motor Control</span>
+          </div>
+          
+          <h4 style="color: var(--text-primary); margin: 1.5rem 0 1rem 0;">Class Scope</h4>
+          <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
+            Hello and welcome to my ME360 Class Portfolio for the Spring 2024 semester at Boston University. 
+            Below are the three projects I worked on over the course of the class, the Gasket, the 2.5 DOF, and the 
+            Motor Speed Control. The projects are described in depth in this portfolio. Two of the projects were 
+            group efforts however everything pictured and provided here is what I worked on out of my groups. 
+            This portfolio highlights my hard work and efforts during this semester which is all due to the 
+            teachings of my Professor, Professor Gutierrez-Wing, without whom I would not have been able to 
+            accomplish such cool projects and learned such applicable engineering skills. Thank you for 
+            a great semester Professor!
+          </p>
+
+          <h4 style="color: var(--text-primary); margin: 1.5rem 0 1rem 0;">Gasket Project</h4>
+          <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
+            • we were asked to accurately measure and sketch a metal block in order to produce a gasket<br>
+            • each block had slightly different dimensions, therefore accuracy in measurement was key<br>
+            • also required to make CAD models in Solidworks of our sketches and then learned how to use Gibbscam to produce a gcode file to send to a CNC mill at BU EPIC<br>
+            • overall I am satisfied with my project however I misunderstood one step in the instructions for Gibbscam and therefore my two pin holes are too large<br>
+            In the assigned Gasket Project, our task was to precisely measure and sketch a metal block, 
+            emphasizing the accuracy due to slight variations in the dimensions of each block. 
+            This meticulous approach was crucial as the end goal was to manufacture a gasket tailored to the 
+            specific dimensions of the metal block. Following the measurement and sketching phase, we 
+            transitioned to Solidworks to create detailed CAD models, ensuring the accurate representation of 
+            the metal block. With CAD the model, we learned and utilized Gibbscam, a pivotal step in the project, 
+            where I encountered a misunderstanding in the instructions. My misunderstanding caused me to 
+            make the pin hole cuts outer cuts instead of inner cuts. Unfortunately, this oversight resulted in 
+            the creation of two pin holes that were larger than intended during CNC milling at the BU EPIC lab. 
+            Despite this setback, I am  overall satisfied with the project, highlighting the comprehensive 
+            learning experience that encompassed measurement, sketching, CAD modeling, and CNC milling processes 
+            at BU EPIC.
+          </p>
+
+          <h4 style="color: var(--text-primary); margin: 1.5rem 0 1rem 0;">High-Precision Low Dexterity Helping Hand "Armagetit"</h4>
+          <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
+            Project 1 of ME360 asked us to chose a topic and build a device that moved in 2.5 degrees of 
+            freedom using stepper motors, aluminum bars, 3D printed parts<br>
+            For our project, our group chose to build a helping hand tool for people with low dexterity 
+            that allowed high precision operations<br>
+            Say someone is unable to precisely bring a tool to a workpiece? That is where our project 
+            applies! However, Armagetit can be used for anyone wishing for high tool precision<br>
+            The user simply inputs x and y coordinates to move the desired tool to the work piece in 
+            the 5in x10in area, and then a z angle to rotate the lever arm down<br>
+            For parts and wiring, we used three stepper motors, an Arduino Board, 3D printed parts, 
+            and a Soldering Iron. Two of the motors were the X and Y movement, and on the horizontal top 
+            bar was the third Z direction motor. The .5DOF motor was a strong servo which moved the 
+            designed lever arm that held the tool that is working on the desired application. Simple Gcode 
+            commands were sent to Repetier Host to control all four motors (shown below)<br>
+            For our presentation, we chose to use a soldering iron to move to a metal workpiece to 
+            solder and unsolder two wires. The only user input were coordinates, and holding the 
+            wire to the solder joint. Armagetit moved to the correct locations, applied the iron, 
+            lifted to allow for joint cooling, and then applied the iron again to unsolder each wire<br>
+            Overall, the project was a success. However, if brought into daily use I would purchase a 
+            new Arduino board since the old board used from the lab caused us strange issues we 
+            couldn't explain. These issues were easily solved with restarting the board, however this is 
+            unacceptable for daily use. Also, I would introduce a larger work area and a stronger way of 
+            holding the workpiece in one location
+          </p>
+
+          <h4 style="color: var(--text-primary); margin: 1.5rem 0 1rem 0;">Car with Motor Speed Control</h4>
+          <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.5rem;">
+            Project 2 of ME360 consisted of designing a simple car that used a motor with a speed controller.<br>
+            The constraints of the project were that the car must travel 5 feet exactly there and back and it 
+            must accelerate and decelerate in a way to balance a one foot upright beam.<br>
+            Another challenge was that we were competing with the entire class to see which car could achieve 
+            the fastest time.<br>
+            Below is my designed simulation and motion analysis of the car project, designed to match 
+            the real-life project as much as possible<br>
+            In my Solidworks assembly, I am only using the bare-bone necessities of the project to 
+            analyze and calculate at which acceleration the bar is projected to tip over, and based on this 
+            value, what is the fastest possible time simulated for our design<br>
+            With this, any real-life found time which is slower than the simulation can be blamed on the 
+            added wheels to the car<br>
+            During the simulation, we found the maximum theoretical acceleration of the cart before the bar 
+            tips by simulating a constantly accelerating cart util a moment force being measured by 
+            Solidworks reaches a calculated value found for the bar to tip over (figures below)<br>
+            We also implemented a velocity curve (shown below) in the simulation to successfully move and 
+            accelerate the cart with the bar along the project parameters, and then implemented this into 
+            Arduino code to control the cart with the simple code provided during lecture<br>
+            My simulation time was just above 6 seconds, and our approximate time in real-life was just 
+            over 10 seconds<br>
+            Based on our manufacturing quality, we noticed slight slipping of the wheels we designed and 
+            even though we increased the friction of the wheel with tape, the experimental time was still 
+            slower than the simulation<br>
+            Originally, we wanted to use purchased wheels provided by Professor Gutierrez, however the 
+            supply ran out before we could use them<br>
+            For future cars, if we wanted to match the simulation time we would manufacture thicker and 
+            smaller wheels with rubber, and would assemble them with a stopper at the end of the axel for a 
+            better fit and roll
+          </p>
+
+          <div class="project-gallery">
+            <img src="images/drone1.jpeg" alt="Drone 1" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; border: 1px solid var(--border-color);">
+            <img src="images/drone2.jpeg" alt="Drone 2" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; border: 1px solid var(--border-color);">
+            <img src="images/drone3.jpeg" alt="Drone 3" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; border: 1px solid var(--border-color);">
+            <img src="images/drone4.jpeg" alt="Drone 4" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; border: 1px solid var(--border-color);">
+          </div>
+
+          <button class="expand-button" onclick="toggleProject(this)" style="background: var(--bg-tertiary); color: var(--text-primary);">Show Less</button>
+        </div>
+      </div>
+
     </div>
   </section>
 
