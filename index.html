@@ -219,14 +219,40 @@
       padding: 3rem;
       border: 1px solid var(--border-color);
       box-shadow: var(--shadow-dark);
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-image {
+      width: 100%;
+      max-width: 250px;
+      height: 250px;
+      border-radius: 20px;
+      object-fit: cover;
+      border: 3px solid var(--border-color);
+      transition: all 0.3s ease;
+      justify-self: center;
+    }
+
+    .about-image:hover {
+      transform: scale(1.05);
+      border-color: var(--accent-primary);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .about-text-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
     }
 
     .about-text {
       font-size: 1.1rem;
       color: var(--text-secondary);
-      text-align: center;
       line-height: 1.8;
     }
 
@@ -535,12 +561,31 @@
   <section id="about">
     <h2 class="section-title">About Me</h2>
     <div class="about-content">
-      <p class="about-text">
-        I'm a recent graduate in Mechanical Engineering with a focus on aerospace systems, 
-        prototyping, and data-driven design. My expertise spans from fuel cell technology 
-        to structural dynamics simulation, always driven by a passion for innovation and 
-        cross-functional teamwork in solving tomorrow's engineering challenges.
-      </p>
+      <img src="images/Research4.jpeg" alt="Research 4" class="about-image">
+      <div class="about-text-content">
+        <p class="about-text">
+          I'm a Boston University Mechanical Engineering student with an Aerospace Concentration, passionate about pushing the boundaries 
+          of flight technology and sustainable innovation. My journey has taken me from developing cutting-edge eVTOL aircraft at Joby Aviation 
+          to researching turbulent wake flows for NASA's Urban Air Mobility initiative at Boston University.<br>
+          <br>
+          At Joby Aviation, I dove deep into rotordynamics as an intern, validating dynamic blade loads for next-generation electric aircraft and 
+          developing automated analysis tools that streamline wind tunnel data interpretation. This hands-on experience with the future of 
+          aviation complements my research work at BU's Unsteady Fluid Mechanics and Acoustics Laboratory, where I'm tackling one of 
+          aviation's biggest challenges: noise reduction in urban environments.<br>
+          <br> 
+          What drives me is the intersection of engineering precision and real-world impact. Whether I'm programming CFD simulations in 
+          Linux, manufacturing hydrogen production cells that outperform commercial prototypes, or designing accessibility tools for users 
+          with limited mobility, I approach each project with the same philosophy: elegant solutions to complex problems.<br>
+          <br>
+          My technical toolkit spans from MATLAB and Python to specialized aerospace codes like RCAS and OpenFOAM, but what I value most is 
+          the ability to translate complex engineering concepts into tangible results. From ground vibration testing on full-scale aircraft to 
+          building long-range drones for environmental monitoring, I thrive in environments where theoretical knowledge meets practical application.<br>
+          <br>
+          When I'm not in the lab or workshop, you'll find me on the water with BU's sailing team, exploring new cuisines, or chasing 
+          swells for surfing. I believe the best engineers are curious about the world beyond their field – it's this broader perspective 
+          that often leads to the most innovative and efficient solutions.<br>
+        </p>
+      </div> 
     </div>
   </section>
 
